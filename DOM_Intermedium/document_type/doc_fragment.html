@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Use Document Fragment to create List items</h1>
+	<ul id='ul'>
+		<script type="text/javascript">
+			var frag = document.createDocumentFragment();
+			for (var i = 0; i < 10; i++) {
+				var li = document.createElement("li");
+				li.innerHTML = "List ITEM" + String(i);
+				frag.appendChild(li);
+				};
+
+			document.getElementById('ul').appendChild(frag);
+		</script>
+
+	</ul>
+
+</body>
+</html>

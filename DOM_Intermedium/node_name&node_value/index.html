@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NodeName&NodeValue</title>
+</head>
+<body>
+	<!-- comment node -->
+	<div id="container">
+		<p>This is an element node</p>
+		<h1>Another element node</h1>
+	</div>
+	<script>
+		var divNode = document.getElementById("container");
+		console.log(divNode.nodeName + '/' + divNode.nodeValue);
+		var attrNode = divNode.attributes[0];
+		console.log(attrNode.nodeName + '/' + attrNode.nodeValue);
+		var childNode = divNode.childNodes[1];
+		console.log(childNode.nodeName + '/' + childNode.nodeValue);
+		var textNode = childNode.childNodes[0];
+		console.log(textNode.nodeName + '/' + textNode.nodeValue);
+		var commentNode = document.body.childNodes[1];
+		console.log(commentNode.nodeName + '/' + commentNode.nodeValue);
+		var frag = document.createDocumentFragment();
+		console.log(frag.nodeName + '/' + frag.nodeName);
+
+	</script>
+</body>
+</html>

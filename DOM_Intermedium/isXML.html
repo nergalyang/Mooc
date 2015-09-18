@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<title>isXML</title>
+</head>
+<body>
+	<div id="test">isXML</div>
+	<script type="text/javascript">
+	var isXML = function(el) {
+		return document.createElement('p').nodeName !== document.createElement('P').nodeName;
+	}
+	console.log(isXML(document));
+	</script>
+</body>
+</html>
