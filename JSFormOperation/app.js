@@ -1,4 +1,15 @@
   window.onload = function(){
+
+    var todel = document.getElementsByTagName('a');
+    for (var i=0;i<todel.length;i++){
+        todel[i].onclick = function(){
+            del(this);
+        };
+    };
+    var willadd = document.getElementById("add");
+    willadd.onclick = function(){
+        add();
+    };
               
     var table = document.getElementById("table");
     table.onmouseover = function(e){
@@ -28,7 +39,6 @@
         }
     };
      
-	
  
  };
 function del(obj){
@@ -44,11 +54,26 @@ function add(){
     var x2 = document.createElement("td");
     x2.innerHTML = "Andy";
     var x3 = document.createElement("td");
-    x3.innerHTML = '<a href="#" onclick="del(this)">Delete</a>';
+    x3.innerHTML = '<a href="#">Delete</a>';
     x.appendChild(x1);
     x.appendChild(x2);
     x.appendChild(x3);
     toadd.appendChild(x);
     count ++;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
