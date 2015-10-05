@@ -2,8 +2,11 @@
 
     var todel = document.getElementsByTagName('a');
     for (var i=0;i<todel.length;i++){
-        todel[i].onclick = function(){
-            del(this);
+        // todel[i].onclick = function(){
+        //     del(this);
+        // };
+        todel[i].onclick = function(e){
+            del(e.target);
         };
     };
     var willadd = document.getElementById("add");

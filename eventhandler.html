@@ -4,14 +4,22 @@
 	<title>Event Handler</title>
 </head>
 <body>
-	<input type="button" id="btn" value="btn" onclick="showMes()">
-	<input type="button" id="btn2" value="btn2">
-	<input type="button" id="btn3" value="btn3">
+	<div id="box">
+		<input type="button" id="btn" value="btn" onclick="showMes()">
+		<input type="button" id="btn2" value="btn2">
+		<input type="button" id="btn3" value="btn3">		
+	</div>
+
 
 
 	<script type="text/javascript">
-	function showMes () {
-		alert("Hey Yo!");
+	function showMes (e) {
+		alert(e.type);
+		e.stopPropagation();
+	}
+
+	function showBox () {
+		alert("You also click a box!");
 	}
 
 	var btn2 = document.getElementById('btn2');
@@ -25,6 +33,7 @@
 
 	// btn3.attachEvent('onclick',showMes);
 	//cross browser handler
+	var box = document.getElementById('box');
 	var eventUtil={
 		addHandler:function (element,type,handler) {
 			if(element.addEventListener){
@@ -46,6 +55,7 @@
 		}
 	};
 	eventUtil.addHandler(btn3,'click',showMes);
+	eventUtil.addHandler(box,'click',showBox);
 
 	</script>
 </body>
