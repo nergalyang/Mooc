@@ -7,7 +7,8 @@
 	<div id="box">
 		<input type="button" id="btn" value="btn" onclick="showMes()">
 		<input type="button" id="btn2" value="btn2">
-		<input type="button" id="btn3" value="btn3">		
+		<input type="button" id="btn3" value="btn3">	
+		<a href="www.google.com" id="go">link</a>	
 	</div>
 
 
@@ -22,6 +23,10 @@
 		alert("You also click a box!");
 	}
 
+	function stopGoto (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	}
 	var btn2 = document.getElementById('btn2');
 	btn2.onclick = function(){
 		alert("Hey Yo!");
@@ -34,6 +39,7 @@
 	// btn3.attachEvent('onclick',showMes);
 	//cross browser handler
 	var box = document.getElementById('box');
+	var go = document.getElementById('go');
 	var eventUtil={
 		addHandler:function (element,type,handler) {
 			if(element.addEventListener){
@@ -56,6 +62,7 @@
 	};
 	eventUtil.addHandler(btn3,'click',showMes);
 	eventUtil.addHandler(box,'click',showBox);
+	eventUtil.addHandler(go,'click',stopGoto);
 
 	</script>
 </body>
