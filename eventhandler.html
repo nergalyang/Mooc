@@ -18,10 +18,34 @@
 	btn2.onclick = function(){
 		alert("Hey Yo!");
 	};
-	btn2.onclick = null;
+	// btn2.onclick = null;
 
 	var btn3 = document.getElementById('btn3');
-	btn3.addEventListener("click",showMes,false);
+	// btn3.addEventListener("click",showMes,false);
+
+	// btn3.attachEvent('onclick',showMes);
+	//cross browser handler
+	var eventUtil={
+		addHandler:function (element,type,handler) {
+			if(element.addEventListener){
+				element.addEventListener(type,handler,false);
+			}else if(element.attachEvent){
+				element.attachEvent('on'+type,handler);
+			}else{
+				element['on'+type]=handler;
+			}
+		},
+		removeHandler:function (element,type,handler) {
+			if(element.removeEventListener){
+				element.removeEventListener(type,handler,false);
+			}else if(element.detachEvent){
+				element.detachEvent('on'+type,handler);
+			}else{
+				element['on'+type]=null;
+			}
+		}
+	};
+	eventUtil.addHandler(btn3,'click',showMes);
 
 	</script>
 </body>
